@@ -2,9 +2,10 @@ package com.ramazan.composeapp
 
 import java.util.*
 
-class TextRepositoryImpl(val items: ArrayList<String>) : TextRepository {
+class TextRepositoryImpl(private val items: ArrayList<String>) : TextRepository {
 
     private var lastProvided: String = ""
+
     override fun getText(): String {
         val random = Random()
 

@@ -5,14 +5,14 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 
-class MainViewModel(val repository: TextRepository) : ViewModel() {
+class MainViewModel(private val repository: TextRepository) : ViewModel() {
 
-    private var textState by mutableStateOf("")
+    private var textState by mutableStateOf(repository.getText())
 
     val text: String
         get() = textState
 
-    fun changeText() {
+    fun onTextChange() {
         textState = repository.getText()
     }
 }

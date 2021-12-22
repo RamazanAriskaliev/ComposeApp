@@ -1,5 +1,7 @@
 package com.ramazan.composeapp
 
+import com.ramazan.composeapp.data.text.TextRepository
+import com.ramazan.composeapp.data.text.TextRepositoryImpl
 import io.mockk.every
 import io.mockk.mockk
 import io.mockk.verify
@@ -18,7 +20,7 @@ class MainActivityViewModelTest {
         val predictedResult = "Test"
         every { repository.getText() } returns predictedResult
         val viewModel = MainViewModel(repository)
-        viewModel.onTextChange()
+        viewModel.onChangeData()
         assertEquals(predictedResult, viewModel.text)
         verify { repository.getText() }
     }
@@ -36,11 +38,11 @@ class MainActivityViewModelTest {
         )
         val repository = TextRepositoryImpl(list)
         val viewModel = MainViewModel(repository)
-        viewModel.onTextChange()
+        viewModel.onChangeData()
         val result1 = viewModel.text
-        viewModel.onTextChange()
+        viewModel.onChangeData()
         val result2 = viewModel.text
-        viewModel.onTextChange()
+        viewModel.onChangeData()
         val result3 = viewModel.text
         assertContains(list, result1)
         assertContains(list, result2)

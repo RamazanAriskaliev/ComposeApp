@@ -1,4 +1,4 @@
-package com.ramazan.composeapp
+package com.ramazan.composeapp.data.text
 
 import java.util.*
 
